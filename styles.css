@@ -1,0 +1,60 @@
+body {
+    padding: 25px;
+    background-image: linear-gradient(to top, red, black);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Comfortaa', sans-serif; /* Use a default font for better readability */
+}
+
+.titleBox {
+    border-radius: 20px;
+    border: solid gray;
+    background-color: rgba(200, 190, 190, 0.1);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+.title {
+    color: white;
+    font-family: Silkscreen;
+    text-align: center;
+    font-size: 2.5em; /* Increase font size */
+}
+
+.subtitle {
+    text-align: center;
+    font-family: 'Turret Road';
+    color: white;
+    font-size: 1.5em; /* Increase font size */
+}
+
+.gameBox {
+    margin-top: 30px;
+    border-radius: 20px;
+    border: solid gray;
+    background-color: rgba(200, 200, 200, 0.1);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
+
+.gameTitle {
+    font-family: 'DotGothic16';
+    text-align: center;
+    color: white;
+    font-size: 2em; /* Increase font size */
+}
+
+.titleBox:hover, .gameBox:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Lighten on hover */
+    transition: background-color 0.6s ease; /* Smooth transition */
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.8em;
+    }
+    .subtitle, .gameTitle {
+        font-size: 1.2em;
+    }
+}
