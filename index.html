@@ -1,40 +1,60 @@
 <!DOCTYPE html>
-<html>
-    
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            🔥•Ember Studios•🔥 | Games
-        </title>
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=DotGothic16&family=Handjet:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap"
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>🔥•Ember Studios•🔥 | Games</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=DotGothic16&family=Handjet:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap"
         rel="stylesheet">
-        <script src="script.js">
-        </script>
-    </head>
-    
-    <body>
-        <div class=titleBox>
-            <h1 class="title">
-                🔥•Ember Studios•🔥
-            </h1>
-            <h3 class="subtitle">
-                Game Center
-            </h3>
-        </div>
-        <div class=gameBox>
-            <h1 class=gameTitle>
-                Games
-                <br>
-                ___________
-            </h1>
-            <br>
-        </div>
-        <footer>
-    <p style="text-align: center; color: white; margin-top: 20px;">© 2024 🔥•Ember Studios•🔥, All rights reserved.</p>
-</footer>
-    </body>
+    <script>
+        // JavaScript code to load and display games from JSON
+        window.addEventListener("DOMContentLoaded", function() {
+            // Fetch the JSON file containing game data
+            fetch('games.json')
+                .then(response => response.json())
+                .then(games => {
+                    // Get the container where games will be displayed
+                    const gamesContainer = document.getElementById('gamesContainer');
+                    
+                    // Loop through each game and create an HTML structure for it
+                    games.forEach(game => {
+                        const gameElement = document.createElement('div');
+                        gameElement.classList.add('gameItem');
+                        
+                        gameElement.innerHTML = `
+                            <h2 class="gameName">${game.name}</h2>
+                            <p class="gameDescription">${game.description}</p>
+                            <a href="${game.url}" class="gameLink">Play Now</a>
+                        `;
+                        
+                        // Append the new game element to the container
+                        gamesContainer.appendChild(gameElement);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error loading the game data:", error);
+                });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="titleBox">
+        <h1 class="title">🔥•Ember Studios•🔥</h1>
+        <h3 class="subtitle">Game Center</h3>
+    </div>
+
+    <div class="gameBox" id="gamesContainer">
+        <h1 class="gameTitle">Games</h1>
+        <br>
+    </div>
+
+    <footer>
+        <p style="text-align: center; color: white; margin-top: 20px;">© 2024 🔥•Ember Studios•🔥, All rights reserved.</p>
+    </footer>
+</body>
 
 </html>
